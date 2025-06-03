@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Login - Distribution Product</title>
-    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <title>Login - Distributor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI&display=swap" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
     <style>
         * {
             margin: 0;
@@ -34,25 +35,41 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: rgb(96, 188, 234);
+            background-color: #4187d1;
+            flex-direction: column;
+        }
+
+        .site-title {
+            color: white;
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+            text-shadow: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
 
         .login-box {
             background-color: #fff;
             padding: 50px 60px;
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(5, 13, 116, 0.1);
             width: 100%;
             max-width: 500px;
         }
 
         .login-box h2 {
             margin-bottom: 20px;
+            font-size: 25px;
             color: #2c2a74;
             text-align: center;
         }
 
-        input[type=email], input[type=password] {
+        input[type=email],
+        input[type=password] {
             width: 100%;
             padding: 15px;
             margin-bottom: 20px;
@@ -112,68 +129,44 @@
     </style>
 </head>
 <body>
-
-<!-- Login Pelanggan -->
-<section class="section">
-    <div class="image-side" style="background-image: url('https://qontak.com/wp-content/uploads/2022/10/Perilaku-Konsumen.webp');">
-    </div>
-    <div class="form-side" data-aos="fade-up">
-        <div class="login-box">
-            <h2>Login</h2>
-
-            @if($errors->any())
-                <div class="error">{{ $errors->first() }}</div>
-            @endif
-
-            <form method="POST" action="/login/process">
-                @csrf
-                <input type="email" name="email" placeholder="Email" value="{{ old('email') }}" required>
-                <input type="password" name="password" placeholder="Password" required>
-                <button type="submit">Masuk</button>
-            </form>
-
-            <div class="forgot-password">
-                <a href="/forgot-password">Lupa Password?</a>
+    <!-- Login Pelanggan -->
+    <section class="section">
+        <div
+            class="image-side"
+            style="background-image: url('https://qontak.com/wp-content/uploads/2022/10/Perilaku-Konsumen.webp');"
+        ></div>
+        <div class="form-side" data-aos="fade-up">
+            <div class="site-title">
+                <i class="bi bi-box-seam" style="font-size: 32px;"></i> Distribution Product 
             </div>
+            <div class="login-box">
+                <h2>Login</h2>
 
-            <div class="register-link">
-                <p>Belum punya akun? <a href="/register">Daftar di sini</a></p>
-            </div>
-        </div>
-    </div>
-</section>
+                @if($errors->any())
+                    <div class="error">{{ $errors->first() }}</div>
+                @endif
 
-<!-- Login Admin -->
-{{-- <section class="section">
-    <div class="image-side" style="background-image: url('https://static.vecteezy.com/system/resources/previews/011/431/911/large_2x/system-administrators-or-sysadmins-are-servicing-server-racks-system-administration-upkeeping-configuration-of-computer-systems-and-networks-concept-flat-modern-illustration-vector.jpg');">
-    </div>
-    <div class="form-side" data-aos="fade-up">
-        <div class="login-box">
-            <h2>Login Admin</h2>
+                <form method="POST" action="/login/process">
+                    @csrf
+                    <input type="email" name="email" placeholder="Email" value="{{ old('email') }}" required />
+                    <input type="password" name="password" placeholder="Password" required />
+                    <button type="submit">Masuk</button>
+                </form>
 
-            <form method="POST" action="/login">
-                @csrf
-                <input type="email" name="email" placeholder="Email Admin" required>
-                <input type="password" name="password" placeholder="Password" required>
-                <button type="submit">Masuk</button>
-            </form>
-
-            <div class="forgot-password">
-                <a href="/forgot-password">Lupa Password?</a>
-            </div>
-
-            <div class="register-link">
-                <p>Belum punya akun? <a href="/register">Daftar di sini</a></p>
+                <div class="register-link">
+                    <p>
+                        Belum punya akun? <a href="/register">Daftar di sini</a>
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
-</section> --}}
+    </section>
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-  AOS.init({
-    duration: 1000,
-  });
-</script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+        });
+    </script>
 </body>
 </html>

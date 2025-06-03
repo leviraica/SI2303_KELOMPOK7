@@ -126,13 +126,13 @@
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #007bff;">
         <div class="container-fluid">
-            <a class="navbar-brand fw-bold" href="#"><i class="bi bi-box-seam"></i> Distributor</a>
+            <a class="navbar-brand fw-bold" href="#"><i class="bi bi-box-seam"></i> Distribution Product</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
                 <ul class="navbar-nav">
-                    
+                    <!-- Bisa ditambah menu lain di sini jika perlu -->
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav-item">
@@ -151,7 +151,7 @@
     <!-- END NAVBAR -->
 
     <div class="container mt-5">
-        <h1 class="text-center fw-bold"><i class="bi bi-truck"></i> Dashboard Distributor</h1>
+        <h1 class="text-center fw-bold"><i class="bi bi-box-seam"></i> Dashboard Distributor</h1>
 
         <!-- Tombol Lihat Keranjang -->
         <div class="d-flex justify-content-end mb-3">
