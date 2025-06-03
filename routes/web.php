@@ -43,6 +43,7 @@ Route::middleware(['auth', 'customer'])->group(function () {
     Route::post('/checkout', [CheckoutController::class, 'proses'])->name('checkout.proses');
     Route::get('/checkout/riwayat', [CheckoutController::class, 'riwayat'])->name('riwayat.pembelian');
     Route::get('/checkout/unduh-riwayat', [CheckoutController::class, 'unduhRiwayat'])->name('checkout.unduhRiwayat');
+    
 
     // Route untuk order
     Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');

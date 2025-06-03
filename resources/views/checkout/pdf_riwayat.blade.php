@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
     <title>Riwayat Pembelian</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(to bottom, #f0f4f8, #d9e2ec);
+            background-color: #f0f4f8;
             padding: 30px;
+            color: #333;
         }
 
         h1 {
@@ -20,18 +18,24 @@
             font-weight: 700;
         }
 
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
         .card {
             background-color: #ffffffcc;
             border: none;
             border-radius: 10px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
             margin-bottom: 25px;
-            transition: transform 0.3s ease;
+            padding: 0;
         }
 
-        .card:hover {
+        /* Hilangkan hover transform karena PDF gak support */
+        /* .card:hover {
             transform: translateY(-5px);
-        }
+        } */
 
         .card-header {
             background-color: #2c3e50;
@@ -49,7 +53,6 @@
 
         .card-body p {
             margin-bottom: 8px;
-            color: #333;
         }
 
         ul {
@@ -62,9 +65,7 @@
     </style>
 </head>
 <body>
-
     <h1>Riwayat Pembelian</h1>
-
     <div class="container">
         @foreach($riwayat as $pembelian)
             <div class="card">
@@ -86,6 +87,5 @@
             </div>
         @endforeach
     </div>
-
 </body>
 </html>

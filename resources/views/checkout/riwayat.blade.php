@@ -2,50 +2,45 @@
 
 @section('content')
 <div class="container">
-    <h1>Riwayat Pembelian</h1>
+    <h1 class="text-center mb-5">🧾 Riwayat Pembelian</h1>
 
     @if(count($riwayat) > 0)
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Tanggal</th>
-                    <th>Nama</th>
-                    <th>Alamat</th>
-                    <th>Telepon</th>
-                    <th>Metode Pembayaran</th>
-                    <th>Detail Pembelian</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($riwayat as $pembelian)
-                <tr>
-                    <td>{{ $pembelian['tanggal'] }}</td>
-                    <td>{{ $pembelian['nama'] }}</td>
-                    <td>{{ $pembelian['alamat'] }}</td>
-                    <td>{{ $pembelian['telepon'] }}</td>
-                    <td>{{ $pembelian['metode_pembayaran'] }}</td>
-                    <td>
-                        <ul>
+        <div class="row">
+            @foreach($riwayat as $pembelian)
+            <div class="col-md-6 mb-4">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-header bg-primary text-white fw-bold">
+                        {{ $pembelian['nama'] }} <span class="float-end">{{ $pembelian['tanggal'] }}</span>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>📍 Alamat:</strong> {{ $pembelian['alamat'] }}</p>
+                        <p><strong>📞 Telepon:</strong> {{ $pembelian['telepon'] }}</p>
+                        <p><strong>💳 Metode Pembayaran:</strong> {{ ucfirst($pembelian['metode_pembayaran']) }}</p>
+
+                        <h6 class="mt-3 fw-semibold">🛒 Produk Dibeli:</h6>
+                        <ul class="ps-3">
                             @foreach($pembelian['items'] as $item)
-                                <li>{{ $item['nama'] }} - {{ $item['jumlah'] }} x Rp {{ number_format($item['harga'], 0, ',', '.') }}</li>
+                                <li>{{ $item['nama'] }} ({{ $item['jumlah'] }} x Rp {{ number_format($item['harga'], 0, ',', '.') }})</li>
                             @endforeach
                         </ul>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
     @else
-        <p>Riwayat pembelian Anda kosong.</p>
+        <div class="alert alert-info text-center">
+            Riwayat pembelian Anda masih kosong.
+        </div>
     @endif
 
     <div class="text-center mt-4">
-        <a href="{{ route('checkout.unduhRiwayat') }}" class="btn btn-success">Unduh Riwayat Pembelian (PDF)</a>
-    </div>
-
-     <!-- Tombol Kembali ke Dashboard -->
-     <div class="text-center mt-4">
-        <a href="{{ route('dashboard.index') }}" class="btn btn-primary">⬅ Kembali ke Dashboard</a>
+        <a href="{{ route('checkout.unduhRiwayat') }}" class="btn btn-success">
+            ⬇ Unduh Riwayat Pembelian (PDF)
+        </a>
+        <a href="{{ route('dashboard.index') }}" class="btn btn-primary ms-2">
+            ⬅ Kembali ke Dashboard
+        </a>
     </div>
 </div>
 @endsection
